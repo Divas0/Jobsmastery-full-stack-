@@ -2,6 +2,9 @@ import express from 'express'
 import authRoute from "./routes/authRoute.js"
 import 'dotenv/config'
 
+import postRouter from "./routes/postRoute.js"
+
+
 const app = express();
 app.use(express.json())
 const port = 3000
@@ -10,7 +13,8 @@ app.get('/', (req, res) => {
   res.send(JSON.stringify(req.headers));
 })
 
-app.use("/api/user", authRoute)
+app.use("/api/user", authRoute);
+app.use("/api/post", postRouter)
 
 
 
