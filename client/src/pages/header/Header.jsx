@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import ToggleButton from "@/components/shared/ToggleButton";
+
 import { Languages, UserRound, ChevronDown , Search} from "lucide-react";
 import {Link, NavLink} from "react-router-dom"
+import { Switch } from "@/components/ui/switch"
+
 
 
 const Header = () => {
@@ -22,7 +24,7 @@ const Header = () => {
             </span>
           </div>
           <div>
-            <ToggleButton />
+            <Switch/>
           </div>
           <div className="flex gap-[10px] ">
             <UserRound />
@@ -37,9 +39,11 @@ const Header = () => {
         <div className="flex justify-center items-center"> 
         <li className="flex "> 
             <ul className="flex gap-[10px] "> 
+            <NavLink to={"/register"}> Register</NavLink>
                 <NavLink to={"/login"}> Login</NavLink>
                 <NavLink to={"/customersupport"}>  customer support </NavLink>
                 <NavLink to={"/about"}> About</NavLink>
+
             </ul>
         </li>
         </div>
