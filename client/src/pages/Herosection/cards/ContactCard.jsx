@@ -25,24 +25,24 @@ const ContactCard = () => {
     </CardTitle>
   
   </CardHeader>
-  <CardContent className='flex  '>
+  <CardContent className='flex gap-[10px]  '>
   
-  <div> 
-    <img  className=' rounded-full w-[70px[ h-[80px]'src='https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600'/>
+  <div className=''> 
+    <img  className=' rounded-full w-[60px[ h-[50px]'src='https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600'/>
   </div>
   <div> 
-<h1> Aisha shah</h1>
+<h1 className=''> Aisha shah</h1>
   </div>
   
   </CardContent>
   <CardFooter>
     <div> 
-    <ul className='flex gap-[2px]'>
-                                        <li><a href="#"> <Pencil className=" bg-blue-700 fill-white rounded-full w-[40px] h-[30px]" /></a></li>
-                                        <li><a href="#"> <Mail  className=" bg-blue-700 fill-white rounded-full w-[40px] h-[30px]" /></a></li>
-                                        <li><a href="#"> <Phone  className=" bg-blue-700 fill-white rounded-full w-[40px] h-[30px]" /></a></li>
-                                        <li><a href="#"> <Printer  className=" bg-blue-700 fill-white rounded-full w-[40px] h-[30px]" /></a></li>
-                                        <li><a href="#"> <BriefcaseBusiness className=" bg-blue-700 fill-white rounded-full w-[30px] h-[40px]"  /></a></li>
+    <ul className='flex gap-[2px] pb-0'>
+                                        <li><a href="#"> <Pencil className=" bg-blue-700 fill-white rounded-full w-[30px] h-[25px]" /></a></li>
+                                        <li><a href="#"> <Mail  className=" bg-blue-700 fill-white rounded-fullw-[30px] h-[25px]" /></a></li>
+                                        <li><a href="#"> <Phone  className=" bg-blue-700 fill-white rounded-full w-[30px] h-[25px]" /></a></li>
+                                        <li><a href="#"> <Printer  className=" bg-blue-700 fill-white rounded-full w-[30px] h-[25px]" /></a></li>
+                                        <li><a href="#"> <BriefcaseBusiness className=" bg-blue-700 fill-white rounded-full w-[30px] h-[25px]"  /></a></li>
                                         <li><a href="#">...</a></li>
                                         </ul>
     </div>

@@ -6,7 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import Root from '@/components/shared/Root';
 import HeroPlatform from '@/pages/Herosection/HeroPlatform';
 import Register from '@/pages/register/Register';
-import Home from '@/App';
+import Home from '@/pages/Home/Home';
+
 
 const AllRoutes = () => {
   return (

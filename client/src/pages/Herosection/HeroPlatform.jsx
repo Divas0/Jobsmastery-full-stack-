@@ -8,7 +8,7 @@ const HeroPlatform = () => {
   return (
     <>
       <div className="w-full h-full bg-[#FCEBD7]">
-        <div className="flex justify-center items-center pt-[50px]">
+        <div className="flex justify-center items-center pt-[40px]">
           <img src="../src/imgs/homepage.png" className="" alt="" />
         </div>
         <div className="flex ">
@@ -39,27 +39,24 @@ const HeroPlatform = () => {
             </p>
           </div>
 
-          <div className="pl-[30px] flex flex-col justify-center ">
-            <div className="flex "> 
-            <div className="p-[20px] ">
-              <WeeklyCard />
-            </div>
-            <div>
-              {" "}
-              <Chatbot />
-            </div>
+          <div className=" flex flex-col justify-center ">
+            <div className="flex justify-center gap-[5px] pl-[30px] ">
+              <div className=" ">
+                <WeeklyCard />
+              </div>
+              <div>
+                <Chatbot />
+              </div>
             </div>
 
-            <div className=" flex justify-center gap-[5px] "> 
-            <div> 
-              <Aibot/>
+            <div className=" flex justify-center gap-[5px] ">
+              <div>
+                <Aibot />
+              </div>
+              <div>
+                <ContactCard />
+              </div>
             </div>
-            <div> 
-   <ContactCard/>
-            </div>
-            </div>
-            
-            
           </div>
         </div>
       </div>
