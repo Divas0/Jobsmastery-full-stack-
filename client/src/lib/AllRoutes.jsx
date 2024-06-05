@@ -7,6 +7,9 @@ import Root from '@/components/shared/Root';
 import HeroPlatform from '@/pages/Herosection/HeroPlatform';
 import Register from '@/pages/register/Register';
 import Home from '@/pages/Home/Home';
+import Blogs from '@/pages/blog section/Blogs';
+import SingleBlog from '@/pages/blog section/SingleBlog';
+import CustomerSupportPage from '@/pages/support section/CustomerSupportPage';
 
 
 const AllRoutes = () => {
@@ -21,6 +24,9 @@ const AllRoutes = () => {
             <Route path='/about' element={<About/>}/>
             <Route path='/customersupport' element={<Contact/>} />
             <Route path='/register' element={<Register/> }/>
+            <Route path='/blogs' element={<Blogs/>}/>
+            <Route path='/blogs/:blogid' element={<SingleBlog/>}/>
+            <Route path='/customersupport' element={ <CustomerSupportPage/>} />
         
     </Routes>
     </>
