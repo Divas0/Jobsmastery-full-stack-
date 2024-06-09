@@ -13,8 +13,8 @@ const HeroPlatform = () => {
         </div>
         <div className="flex ">
           <div className="w-[50%] pl-[130px] pr-[30px]">
-            <h3 className="text-[16px]">JOB MASTERY CUSTOMER PLATFORM</h3>
-            <h1 className="text-[54px] flex flex-col ">
+            <h3 className="text-[16px] text-dark-color">JOB MASTERY CUSTOMER PLATFORM</h3>
+            <h1 className="text-[54px] flex flex-col  gap-[0px]">
               Grow better with <span>Hubspot </span>{" "}
             </h1>
             <p className="flex flex-wrap flex-col text-[#212529] ">

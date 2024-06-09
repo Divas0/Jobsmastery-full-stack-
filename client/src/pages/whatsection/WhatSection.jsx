@@ -2,17 +2,16 @@ import React from "react";
 
 const WhatSection = () => {
   return (
-    <div className="h-[440px] w-full bg-light-bg flex gap-[10px] pt-[50px] pl-[50px] ">
+    <div className="h-[440px] w-full bg-light-bg flex pt-[80px] px-[100px] ">
       <div className="w-full ">
-        <video height={150} width={300} controls>
-          <source
-            src="https://videos.pexels.com/video-files/20770858/20770858-hd_1080_1920_30fps.mp4"
-            type="video/mp4"
-          />
-        </video>
+      <div className="">
+          <video height={400} width={600} controls>
+            <source src="https://assets.mixkit.co/videos/51947/51947-720.mp4" />
+          </video>
+          </div>
       </div>
 
-      <div className="flex flex-col gap-[10px]">
+      <div className="flex flex-col gap-[10px] w-[50%] ml-[0px]">
         <h1 className="font-bold text-[32px]">What is Job Mastery?</h1>
         <p className="text-balance">
           {" "}
