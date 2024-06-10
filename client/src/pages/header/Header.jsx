@@ -5,7 +5,7 @@ import { NavLink, Navigate } from "react-router-dom";
 import { Switch } from "@/components/ui/switch";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateCurrentUser, updateIsLoggedIn } from "@/redux/authSlice";
+import {  updateIsLoggedIn } from "@/redux/authSlice";
 
 const Header = () => {
   const dispatch=useDispatch()
@@ -20,7 +20,7 @@ console.log(isLoggedIn,username)
   
   const handlelogOut=()=>{
     dispatch(updateIsLoggedIn(false))
-    Navigate("/")
+    Navigate("/", {replace:true})
 
   }
 

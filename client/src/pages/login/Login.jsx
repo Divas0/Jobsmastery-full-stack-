@@ -56,11 +56,12 @@ const Login = ({ sendData }) => {
     mutationFn: (values) => postData(values),
     onSuccess: (data) => {
       
+      
       const userData={ 
         email:data?.user?.email,
         password:data?.user?.password,
         username:data?.user?.username,
-        author:data?.user?.author,
+        authorId:data?.user?.id
       }
       if (data.jwtToken) {
         dispatch(updateCurrentUser(userData));
@@ -87,6 +88,8 @@ const Login = ({ sendData }) => {
   function onSubmit(values) {
     mutate(values);
   }
+
+ 
   return (
     <div className="flex flex-col w-full h-screen items-center ">
       <h1 className="text-2xl font-bold pb-[20px] pt-[20px]"> Login </h1>

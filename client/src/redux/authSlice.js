@@ -6,8 +6,7 @@ const initialState = {
     email:'',
     password:'',
     username:'',
-    author:'',
-    
+    authorId:''
   }
 };
 
