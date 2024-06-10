@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "@/queries/api";
 import { useMutation } from "react-query";
 import { useDispatch } from "react-redux";
-import { login } from "@/redux/authSlice";
+import {  updateCurrentUser, updateIsLoggedIn } from "@/redux/authSlice";
 import { toast } from "sonner";
 import Loader from "../Loader/Loader";
 
@@ -59,10 +59,12 @@ const Login = ({ sendData }) => {
       const userData={ 
         email:data?.user?.email,
         password:data?.user?.password,
-        username:data?.user?.username
+        username:data?.user?.username,
+        author:data?.user?.author,
       }
       if (data.jwtToken) {
-        dispatch(login(userData));
+        dispatch(updateCurrentUser(userData));
+        dispatch(updateIsLoggedIn(true));
         navigate("/")
         toast.success('login successful')
       } else {

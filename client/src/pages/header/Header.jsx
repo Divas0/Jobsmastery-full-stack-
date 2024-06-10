@@ -5,12 +5,13 @@ import { NavLink, Navigate } from "react-router-dom";
 import { Switch } from "@/components/ui/switch";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "@/redux/authSlice";
+import { updateCurrentUser, updateIsLoggedIn } from "@/redux/authSlice";
+
 const Header = () => {
   const dispatch=useDispatch()
-  const isLoggedIn = useSelector((state) => state.auth.status);
-  // const username = useSelector((state) => state.auth.userData.username);
-
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const username = useSelector((state) => state.auth.currentUser.username);
+console.log(isLoggedIn,username)
   const [searchItem, setSearchItem] = useState("");
 
   const handleSearch = (e) => {
@@ -18,7 +19,7 @@ const Header = () => {
   };
   
   const handlelogOut=()=>{
-    dispatch(logout())
+    dispatch(updateIsLoggedIn(false))
     Navigate("/")
 
   }
@@ -57,7 +58,7 @@ const Header = () => {
             <ul className="flex gap-[10px] list-none">
               {isLoggedIn ? (
                 <div className="flex gap-[10px]"> 
-                <li className="font-bold text-green-500"> Welcome user </li>
+                <li className="font-bold text-green-500"> {`welcome ${username}`} </li>
                 <Link className=" hover:text-hover-color" to={"/create"}> Create </Link>
                 </div>
                 
