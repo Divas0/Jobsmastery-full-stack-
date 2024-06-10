@@ -22,11 +22,12 @@ model User {
 model Post{
   id Int @id @default(autoincrement())
   title String
-  body String
-  author  User @relation(fields: [authorId], references: [id])
-  authorId Int 
-  createdAt DateTime
-  updatedAt DateTime
+  description String
+  content String?
+  author  User? @relation(fields: [authorId], references: [id])
+  authorId Int? 
+  publishedAt DateTime?
   image String?
+  category String
 
 }
