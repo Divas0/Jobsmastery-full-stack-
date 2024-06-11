@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
+
+
 const BlogFooter = () => {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [email, setEmail]=useState()
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
@@ -10,9 +13,16 @@ const BlogFooter = () => {
     } else {
       setSelectedItems((prev) => prev.filter((item) => item !== value));
     }
+
+
+    
+
+    
+
+
   };
 
-  console.log(selectedItems);
+
 
   return (
     <div className="w-full h-[452px] bg-[#FEF4EA] pt-[30px] flex  gap-[20px]">
@@ -78,7 +88,7 @@ const BlogFooter = () => {
         </div>
         <div> 
             <h1> Email address</h1>
-            <input type="text" placeholder="enter your email" className="p-[10px] w-full border border-dark-color " />
+            <input type="text" placeholder="enter your email" onChange={(e)=> setEmail(e.target.value)} className="p-[10px] w-full border border-dark-color " />
             <p className="font-lexendeca">We're committed to your privacy. HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. You may unsubscribe from these communications at any time. For more information, check out our privacy policy.</p>
         </div>
       </div>

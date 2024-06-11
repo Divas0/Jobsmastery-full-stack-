@@ -16,7 +16,7 @@ const Chatbot = () => {
     <CardHeader>
       <CardTitle className="flex gap-[3px] justify-center items-center">
           <div> 
-          <Zap className='bg-blue-700 fill-white w-[60px] h-[50px] rounded-full' />
+          <Zap className='bg-blue-700 fill-white w-[50px] h-[90px] rounded-full' />
           </div>
           <div className='font-semibold text-[18px] '> 
               <p className='flex  flex-col flex-wrap text-dark-color'> Repurpose yout content<span>  with   content remix </span></p>

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const CreatePost = () => {
   const authorId = useSelector((state) => state.auth.currentUser.authorId);
+  const username = useSelector((state) => state.auth.currentUser.username);
   console.log(authorId);
 
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ const CreatePost = () => {
     publishedAt: "",
     image: null, // Changed to null to handle file input
     category: "",
+    author:username
   });
 
   const handleImage = (e) => {
@@ -46,6 +48,7 @@ const CreatePost = () => {
       }
       if (response.ok) {
         toast.success("post saved succesfully");
+        setFormData("")
       }
       return await response.json();
     } catch (error) {
@@ -66,7 +69,7 @@ const CreatePost = () => {
         formDataObj.append(key, formData[key]);
       }
     }
-    console.log(formDataObj);
+  
     mutate(formDataObj);
   };
 
@@ -85,6 +88,13 @@ const CreatePost = () => {
           name="title"
           value={formData.title}
           placeholder="Title"
+          onChange={handleFormData}
+        />
+          <Input
+          type="text"
+          name="author"
+          value={formData.author}
+          placeholder="author"
           onChange={handleFormData}
         />
         <Input

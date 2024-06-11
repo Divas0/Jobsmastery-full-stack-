@@ -10,8 +10,10 @@ import Root from "@/components/shared/Root";
 // import SingleBlog from "@/pages/blog section/SingleBlog";
 // import CustomerSupportPage from "@/pages/support section/CustomerSupportPage";
 // import CreatePost from "@/pages/create/CreatePost";
-import { lazy, Suspense } from "react";
-import Loader from "@/pages/Loader/Loader";
+import { lazy, } from "react";
+import ProtectedRoute from "@/components/shared/ProtectedRoute";
+
+
 
 const CreatePost = lazy(() => import("../pages/create/CreatePost"));
 const CustomerSupportPage = lazy(() =>
@@ -34,11 +36,11 @@ const AllRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/customersupport" element={<Contact />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={ <Register />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:blogid" element={<SingleBlog />} />
         <Route path="/customersupport" element={<CustomerSupportPage />} />
-        <Route path="/create" element={<CreatePost />} />
+        <Route path="/create" element={ <ProtectedRoute> <CreatePost /> </ProtectedRoute>} />
         </Route>
       </Routes>
     </>

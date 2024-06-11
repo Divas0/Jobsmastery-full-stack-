@@ -39,12 +39,12 @@ const HeroPlatform = () => {
             </p>
           </div>
 
-          <div className=" flex flex-col justify-center ">
+          <div className=" flex flex-col  ">
             <div className="flex justify-center gap-[5px] pl-[30px] ">
-              <div className=" ">
+              <div className=" flex justify-center items-center pl-[8px]">
                 <WeeklyCard />
               </div>
-              <div>
+              <div className="flex justify-center items-center">
                 <Chatbot />
               </div>
             </div>

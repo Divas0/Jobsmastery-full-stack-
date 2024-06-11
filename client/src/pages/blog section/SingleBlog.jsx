@@ -1,11 +1,14 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import SingleBlogCard from "./SingleBlogCard";
+import { useSelector } from "react-redux";
 
 const SingleBlog = () => {
   const { blogid } = useParams();
-  console.log(blogid);
+  const authorId=useSelector((state)=> state.auth.currentUser.authorId)
+  const authorName=useSelector((state)=> state.auth.currentUser.username)
+
 
   const fetchPost = async () => {
     const response = await fetch(
@@ -29,10 +32,13 @@ const SingleBlog = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+ const isAuthorTrue= authorId === data?.post?.authorId
+
+  
 
   return (
     <>
-     <SingleBlogCard image={data?.post?.image} blogid={data?.post?.id} content={ data?.post?.content} title={data?.post?.title} author={data?.post?.author || "anonymous" } publishedAt={data?.post?.publishedAt}  />
+     <SingleBlogCard image={data?.post?.image} blogid={data?.post?.id} content={ data?.post?.content} title={data?.post?.title} author={isAuthorTrue? authorName : "anonymous" } publishedAt={data?.post?.publishedAt}  />
         
     </>
   );

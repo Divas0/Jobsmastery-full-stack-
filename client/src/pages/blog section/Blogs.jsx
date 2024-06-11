@@ -7,7 +7,9 @@ import PodcastSection from "./PodcastSection";
 import ExploreSection from "./ExploreSection";
 import BlogFooter from "./BlogFooter";
 
+
 const Blogs = () => {
+
   const allPosts = async () => {
     return await fetch("http://localhost:3000/api/post/allposts").then((data) =>
       data.json()
@@ -22,12 +24,13 @@ const Blogs = () => {
     return <div> Loading...</div>;
   }
   if (error) {
-    return console.log(error);
+    return  console.log(error);
   }
   const id = data?.allPosts[13]?.id;
-  const generalData = data?.allPosts?.filter((blog) => {
-    return blog?.category === "general";
-  });
+  console.log(data.allPosts.lengths)
+  const generalData = data?.allPosts?.filter((blog)=>{
+    return blog?.category==="general"
+  })
   const marketingData = data?.allPosts?.filter((blog) => {
     return blog?.category === "marketing";
   });
@@ -39,14 +42,14 @@ const Blogs = () => {
   const websiteData=data?.allPosts.filter((blog)=>{
     return blog?.category==="technology"
   })
-  console.log(websiteData)
+  
 
 
 
   return (
     <div className="h-auto w-full px-[100px] py-[30px] bg-[#F6F5F2]">
       {/* general section */}
-      <div className="flex gap-[20px] pt-[20px]  ">
+      <div className="flex gap-[20px] pt-[20px] ">
         <div className="flex flex-col w-[50%] gap-[10px] bg- [#fef4ea]">
           <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
           <Link to={`/blogs/${id}`} className="px-[20px] pt-[20px] pb-[10px]">
@@ -65,9 +68,9 @@ const Blogs = () => {
           </p>
         </div>
 
-        <div className="pl-[20px]  font-semibold shadow-md">
-          <h1 className="p-[10px]"> Featured Posts</h1>
-          {data?.allPosts?.slice(4, 9).map((blog) => (
+        <div className="pl-[20px] w-[50%] font-semibold shadow-md">
+          <h1 className="p-[10px]"> Latest Posts</h1>
+          {data?.allPosts?.slice(data?.allPosts.length-5, data?.allPosts.length).map((blog) => (
             <Link className="" to={`/blogs/${blog?.id}`} key={blog?.id}>
               <li className="px-[20px] py-[10px] flex flex-col    text-[#212529] ">
                 {blog?.title}
@@ -86,8 +89,8 @@ const Blogs = () => {
           ))}
         </div>
       </div>
-      <div className="flex p-[30px] gap-[15px] ">
-        {generalData?.map((blog) => (
+      <div className="flex p-[30px] gap-[25px] w-full scroll-auto">
+        {generalData?.slice(0,5).map((blog) => (
           <BlogCard
             blogid={blog?.id}
             author={blog?.author}
@@ -109,10 +112,11 @@ const Blogs = () => {
         </div>
         <div className="">
           {marketingData?.map((blog) => (
-            <div className="p-[20px] flex flex-wrap ">
+              <Link className=" " to={`/blogs/${blog?.id}`} key={blog?.id}>
+            <div className="p-[30px] flex shadow-sm  flex-wrap ">
               <h1 className="font-semibold py-[10px]"> {blog?.title}</h1>
               <h className="text-wrap"> {blog?.description}</h>
-            </div>
+            </div> </Link>
           ))}
         </div>
       </div>

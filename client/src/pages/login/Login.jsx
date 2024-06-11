@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { loginApi } from "@/queries/api";
 import { useMutation } from "react-query";
 import { useDispatch } from "react-redux";
-import {  updateCurrentUser, updateIsLoggedIn } from "@/redux/authSlice";
+import { updateCurrentUser, updateIsLoggedIn } from "@/redux/authSlice";
 import { toast } from "sonner";
 import Loader from "../Loader/Loader";
 
@@ -51,45 +51,38 @@ const Login = ({ sendData }) => {
     data: LoginData,
     mutate,
     isLoading,
-    error
+    error,
   } = useMutation({
     mutationFn: (values) => postData(values),
     onSuccess: (data) => {
-      
-      
-      const userData={ 
-        email:data?.user?.email,
-        password:data?.user?.password,
-        username:data?.user?.username,
-        authorId:data?.user?.id
-      }
+      const userData = {
+        email: data?.user?.email,
+        password: data?.user?.password,
+        username: data?.user?.username,
+        authorId: data?.user?.id,
+      };
       if (data.jwtToken) {
         dispatch(updateCurrentUser(userData));
         dispatch(updateIsLoggedIn(true));
-        navigate("/")
-        toast.success('login successful')
+        navigate("/");
+        toast.success("login successful");
       } else {
-        toast.error(data?.message)
+        toast.error(data?.message);
       }
-     
-    
-
-    
     },
   });
 
   if (isLoading) {
-    return <Loader/>
+    return <Loader />;
   }
-  if (error){
-    return toast.error(error?.message)
+  if (error) {
+    return toast.error(error?.message);
   }
 
   function onSubmit(values) {
     mutate(values);
   }
 
- 
   return (
     <div className="flex flex-col w-full h-screen items-center ">
       <h1 className="text-2xl font-bold pb-[20px] pt-[20px]"> Login </h1>
